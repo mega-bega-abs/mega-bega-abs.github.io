@@ -3,10 +3,16 @@
     src: url("kremlin.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Roboto-Thin";
+    src: url("Roboto-Thin.ttf") format("truetype");
+}
+
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: black;
 }
 
 main {
@@ -15,24 +21,58 @@ main {
     overflow-y: hidden;
 }
 
-main > div {
+main > div.fullscreen {
     width: 100vw;
     height: 100vh;
 
     background-color: black;
 }
 
+main h2 {
+    height: 5vh;
+}
+
 div#titleCard {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    height: 40vh;
 }
 
 h1 {
     font-family: "Kremlin";
-    font-size: 300px;
+    font-size: 40vh;
     color: white;
     margin: 0;
+}
+
+h2 {
+    font-family: "Roboto-Thin";
+    font-size: 5vh;
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-weight: 100;
+
+    animation: h2Fade 1s ease-in-out 2s 1 normal forwards;
+    opacity: 0;
+}
+
+@keyframes h2Fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+div.fullscreen > h2:first-of-type {
+    margin-top: 15vh;
+}
+
+div.fullscreen > h2:nth-of-type(2) {
+    margin-bottom: 15vh;
 }
 
 h1#A {
@@ -52,6 +92,37 @@ h1#C {
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-delay: 1s;
+}
+
+.centering {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+div.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+img#downArrow {
+    width: auto;
+    height: 20vh;
+
+    animation: arrowFade 1s ease-in-out 2s 1 normal forwards;
+    opacity: 0;
+    display: none;
+}
+
+@keyframes arrowFade {
+    0% {
+        opacity: 0;
+        transform: translateY(2em);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Desktop screens */
@@ -76,11 +147,30 @@ h1#C {
 @media only screen and (max-width: 600px) {
     div#titleCard {
         flex-direction: column;
+        height: auto;
     }
 
     h1 {
         font-size: 20vh;
         transform: translateX(-100vw);
+        margin-top: 5vh;
+    }
+
+    h2 {
+        writing-mode: vertical-lr;
+    }
+
+    h2#fnollk {
+        margin-top: 0;
+        position: absolute;
+        top: 36vh;
+    }
+
+    h2#info {
+        margin-top: 0;
+        position: absolute;
+        top: 37vh;
+        right: 0;
     }
 
     @keyframes letter1 {
@@ -88,7 +178,7 @@ h1#C {
             transform: translateX(-100vw);
         }
         100% {
-            transform: translateX(0vw);
+            transform: translateX(1vh);
         }
     }
 }
