@@ -32,13 +32,12 @@ h1 {
     font-family: "Kremlin";
     font-size: 300px;
     color: white;
-    transform: translateY(-100vh);
+    margin: 0;
 }
 
 h1#A {
     animation-name: letter1;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+    animation-duration: 1s; animation-fill-mode: forwards;
 }
 
 h1#B {
@@ -55,11 +54,41 @@ h1#C {
     animation-delay: 1s;
 }
 
-@keyframes letter1 {
-    0% {
+/* Desktop screens */
+@media only screen and (min-width: 600px) {
+    h1 {
         transform: translateY(-100vh);
     }
-    100% {
-        transform: translateY(0vh);
+
+
+    @keyframes letter1 {
+        0% {
+            transform: translateY(-100vh);
+        }
+        100% {
+            transform: translateY(0vh);
+        }
+    }
+        
+}
+
+/* Mobile screens */
+@media only screen and (max-width: 600px) {
+    div#titleCard {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 20vh;
+        transform: translateX(-100vw);
+    }
+
+    @keyframes letter1 {
+        0% {
+            transform: translateX(-100vw);
+        }
+        100% {
+            transform: translateX(0vw);
+        }
     }
 }
