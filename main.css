@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Kremlin";
+    src: url("kremlin.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+main > div {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+}
+
+div#titleCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    font-family: "Kremlin";
+    font-size: 300px;
+    color: white;
+    transform: translateY(-100vh);
+}
+
+h1#A {
+    animation-name: letter1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+h1#B {
+    animation-name: letter1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+}
+
+h1#C {
+    animation-name: letter1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
+@keyframes letter1 {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(0vh);
+    }
+}
