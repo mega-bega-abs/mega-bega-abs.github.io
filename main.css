@@ -8,6 +8,11 @@
     src: url("Roboto-Thin.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: "Roboto-Light";
+    src: url("Roboto-Light.ttf") format("truetype");
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -23,7 +28,6 @@ main {
 
 main > div.fullscreen {
     width: 100vw;
-    height: 100vh;
 
     background-color: black;
 }
@@ -53,9 +57,38 @@ h2 {
     margin: 0;
     text-align: center;
     font-weight: 100;
+}
 
+div#screen1 h2 {
     animation: h2Fade 1s ease-in-out 2s 1 normal forwards;
     opacity: 0;
+}
+
+.specs p {
+    color: white;
+    font-size: 28px;
+    font-family: "Roboto-Light";
+    font-weight: 400;
+}
+
+.specs p.right {
+    text-align: right;
+}
+
+.specs {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+
+    padding-left: 25vw;
+    padding-right: 25vw;
+}
+
+.separator {
+    height: 1px;
+    grid-column: span 2;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 100%); 
 }
 
 @keyframes h2Fade {
@@ -67,11 +100,12 @@ h2 {
     }
 }
 
-div.fullscreen > h2:first-of-type {
-    margin-top: 15vh;
+div.fullscreen {
+    padding-top: 15vh;
+    height: 85vh;
 }
 
-div.fullscreen > h2:nth-of-type(2) {
+div#screen1 h2:nth-of-type(2) {
     margin-bottom: 15vh;
 }
 
@@ -111,7 +145,10 @@ img#downArrow {
 
     animation: arrowFade 1s ease-in-out 2s 1 normal forwards;
     opacity: 0;
-    display: none;
+}
+
+* {
+    scroll-behavior: smooth;
 }
 
 @keyframes arrowFade {
